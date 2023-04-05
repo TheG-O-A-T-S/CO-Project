@@ -1,0 +1,9 @@
+/JCudaJava/target/
+/JCudaJava/.settings
+/JCudaJava/.classpath
+/JCudaJava/.project
+/target
+/nativeLibraries
+/.project
+/.settings
+/JCudaJava/src/test/resources/kernels/*.ptx
