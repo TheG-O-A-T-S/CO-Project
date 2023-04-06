@@ -8,7 +8,7 @@ import java.security.*;
 import java.util.*;
 
 public class CryptographyBenchmark {
-    public CryptographyBenchmark() {
+    public void computeEncryptionDecryption(){
         JCudaDriver.setExceptionsEnabled(true);
         JCudaDriver.cuInit(0);
         CUdevice device = new CUdevice();
