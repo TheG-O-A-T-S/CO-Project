@@ -11,7 +11,7 @@ import jcuda.driver.CUdevice;
 import java.util.ArrayList;
 
 public class MemoryBenchmark {
-    public MemoryBenchmark() {
+    public long computeAccessTime(){
         // Initialize the JCuda runtime and driver
         JCuda.setExceptionsEnabled(true);
         JCudaDriver.setExceptionsEnabled(true);
@@ -52,9 +52,13 @@ public class MemoryBenchmark {
         JCudaDriver.cuMemFree(d_mem);
 
         // Make a function to return this in order to display it in the GUI
+
         System.out.println("GPU memory access time: " + accessTime + " ns");
 
         // Destroy the CUDA context
+
         JCudaDriver.cuCtxDestroy(context);
+
+        return accessTime;
     }
 }
