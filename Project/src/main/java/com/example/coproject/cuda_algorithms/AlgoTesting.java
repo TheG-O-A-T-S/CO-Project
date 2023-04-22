@@ -5,8 +5,11 @@ public class AlgoTesting {
         CryptographyBenchmark benchmark1 = new CryptographyBenchmark();
         MemoryBenchmark benchmark2 = new MemoryBenchmark();
 
-        benchmark1.computeEncryptionDecryption();
-        benchmark2.computeAccessTime(); 
+        // after the first call the time drops a lot and after the third it evens to around the same number
+        for (int i = 0; i < 10; i++) {
+            benchmark1.computeEncryptionDecryption();
+            benchmark2.computeAccessTime();
+        }
 
     }
 }

@@ -35,7 +35,6 @@ public class CryptographyBenchmark {
 
         long end = System.currentTimeMillis();
 
-        // create function to return this
         System.out.println("Time taken: " + (end - start) + "ms");
 
         JCudaDriver.cuCtxDestroy(context);
