@@ -8,7 +8,7 @@ import java.security.*;
 import java.util.*;
 
 public class CryptographyBenchmark {
-    public CryptographyBenchmark() {
+    public void computeEncryptionDecryption(){
         JCudaDriver.setExceptionsEnabled(true);
         JCudaDriver.cuInit(0);
         CUdevice device = new CUdevice();
@@ -35,7 +35,6 @@ public class CryptographyBenchmark {
 
         long end = System.currentTimeMillis();
 
-        // create function to return this
         System.out.println("Time taken: " + (end - start) + "ms");
 
         JCudaDriver.cuCtxDestroy(context);
