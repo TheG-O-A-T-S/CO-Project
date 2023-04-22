@@ -6,10 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class LandingPage extends JFrame implements ActionListener {
-    private JLabel algorithmLabel;
-    private JTextField algorithmField;
-    private JButton algorithmButton;
-    private JTextArea resultsArea;
+    private JButton algorithmButton1;
+    private JButton algorithmButton2;
+    private JButton testAlgorithmButton;
 
     public LandingPage() {
         // set up the main window
@@ -17,21 +16,27 @@ public class LandingPage extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setPreferredSize(new Dimension(800, 600));
 
-        // create the GUI components
-        algorithmLabel = new JLabel("Select algorithm:");
-        algorithmField = new JTextField(20);
-        algorithmButton = new JButton("Test algorithm");
-        algorithmButton.addActionListener(this);
-        resultsArea = new JTextArea(10, 30);
-        resultsArea.setEditable(false);
+        algorithmButton1 = new JButton("Cryptography");
+        algorithmButton1.setBackground(Color.GRAY);
+        algorithmButton1.setOpaque(true);
+
+        algorithmButton2 = new JButton("Memory");
+        algorithmButton2.setBackground(Color.GRAY);
+        algorithmButton2.setOpaque(true);
+
+        testAlgorithmButton = new JButton("Test algorithm");
+        testAlgorithmButton.addActionListener(this);
+        testAlgorithmButton.setBackground(Color.GRAY);
+        testAlgorithmButton.setOpaque(true);
 
         // add the GUI components to the main window
         JPanel panel = new JPanel();
-        panel.add(algorithmLabel);
-        panel.add(algorithmField);
-        panel.add(algorithmButton);
+        panel.setBackground(new Color(95, 158, 160));
+        panel.add(algorithmButton1);
+        panel.add(algorithmButton2);
+        panel.add(testAlgorithmButton);
         add(panel, BorderLayout.NORTH);
-        add(new JScrollPane(resultsArea), BorderLayout.CENTER);
+        getContentPane().setBackground(new Color(95, 158, 160));
 
         // show the main window
         pack();
@@ -42,17 +47,9 @@ public class LandingPage extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         // handle button clicks
-        if (e.getSource() == algorithmButton) {
-            String algorithm = algorithmField.getText();
-            String result = testGPUAlgorithm(algorithm);
-            resultsArea.setText(result);
-        }
-    }
+        if (e.getSource() == testAlgorithmButton) {
 
-    private String testGPUAlgorithm(String algorithm) {
-        // write the GPU testing algorithms here
-        // return the results as a String
-        return "";
+        }
     }
 
     public static void main(String[] args) {
