@@ -61,6 +61,7 @@ public class LandingPage extends JFrame implements ActionListener {
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
+        //test
     }
 
     @Override
