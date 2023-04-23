@@ -12,7 +12,7 @@ public class LandingPage extends JFrame implements ActionListener {
 
     public LandingPage() {
         // set up the main window
-        super("The G.O.A.T.S. Benchmark");
+        super("G.O.A.T. TEST");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setPreferredSize(new Dimension(800, 600));
         // background color of the title 'The G.O.A.T.S ...'
@@ -32,29 +32,36 @@ public class LandingPage extends JFrame implements ActionListener {
         testAlgorithmButton.setBackground(Color.GRAY);
         testAlgorithmButton.setOpaque(true);
 
-        // left side panel
-        JPanel leftPanel = new JPanel();
-        leftPanel.setBackground(new Color(95, 158, 160));
-        leftPanel.add(Box.createRigidArea(new Dimension(0, 20))); // top spacing
-        leftPanel.add(algorithmButton1);
-        leftPanel.add(Box.createRigidArea(new Dimension(0, 10))); // spacing between buttons
-        leftPanel.add(algorithmButton2);
-        leftPanel.add(Box.createRigidArea(new Dimension(0, 10))); // spacing between buttons
-        leftPanel.add(testAlgorithmButton);
-        leftPanel.add(Box.createVerticalGlue()); // fill remaining space
-        add(leftPanel, BorderLayout.WEST);
-
-        // right side panel
-        JPanel rightPanel = new JPanel();
-        rightPanel.setBackground(new Color(95, 158, 160));
-        ImageIcon imageIcon = new ImageIcon("src/main/java/com/example/coproject/res/goat1.png");
-        // change size of the image
+        //top pannel
+        JPanel topPannel = new JPanel();
+        topPannel.setBackground(Color.magenta);
+        ImageIcon imageIcon = new ImageIcon("src/main/java/com/example/coproject/res/goattest_logo.png");
         Image image = imageIcon.getImage().getScaledInstance(400, 450, Image.SCALE_SMOOTH);
-        rightPanel.add(new JLabel(new ImageIcon(image)));
-        add(rightPanel, BorderLayout.EAST);
+        topPannel.add(new JLabel(new ImageIcon(image)));
+        add(topPannel,BorderLayout.NORTH);
+
+        // center panel
+        JPanel centerPanel = new JPanel();
+        centerPanel.setBackground(Color.RED);
+        centerPanel.add(algorithmButton1);
+        centerPanel.add(algorithmButton2);
+        centerPanel.add(testAlgorithmButton);
+        add(centerPanel,BorderLayout.CENTER);
+
+        //bottom panel
+        JPanel bottomPannel = new JPanel();
+        bottomPannel.setBackground(Color.green);
+        add(bottomPannel,BorderLayout.SOUTH);
+
 
         // set background for the window
         getContentPane().setBackground(new Color(95, 158, 160));
+
+        //set icon for window
+
+        ImageIcon icon_logo = new ImageIcon("src/main/java/com/example/coproject/res/goattest_icon.png");
+        setIconImage(icon_logo.getImage());
+
 
 
         // show the main window
