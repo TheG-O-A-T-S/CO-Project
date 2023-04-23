@@ -14,7 +14,7 @@ public class LandingPage extends JFrame implements ActionListener {
         // set up the main window
         super("G.O.A.T. TEST");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setPreferredSize(new Dimension(800, 600));
+        setPreferredSize(new Dimension(750, 600));
         // background color of the title 'The G.O.A.T.S ...'
         getRootPane().setBackground(new Color(95, 158, 160));
 
@@ -35,9 +35,12 @@ public class LandingPage extends JFrame implements ActionListener {
         //top pannel
         JPanel topPannel = new JPanel();
         topPannel.setBackground(Color.magenta);
-        ImageIcon imageIcon = new ImageIcon("src/main/java/com/example/coproject/res/goattest_logo.png");
-        Image image = imageIcon.getImage().getScaledInstance(400, 450, Image.SCALE_SMOOTH);
+        topPannel.setPreferredSize(new Dimension(750,250));
+
+        ImageIcon imageIcon = new ImageIcon("src/main/java/com/example/coproject/res/goattest_banner.png");
+        Image image = imageIcon.getImage().getScaledInstance(750, 250, Image.SCALE_SMOOTH);
         topPannel.add(new JLabel(new ImageIcon(image)));
+
         add(topPannel,BorderLayout.NORTH);
 
         // center panel
@@ -49,9 +52,19 @@ public class LandingPage extends JFrame implements ActionListener {
         add(centerPanel,BorderLayout.CENTER);
 
         //bottom panel
-        JPanel bottomPannel = new JPanel();
+        JLabel bottomPannel = new JLabel();
         bottomPannel.setBackground(Color.green);
         add(bottomPannel,BorderLayout.SOUTH);
+        bottomPannel.setPreferredSize(new Dimension(750,50));
+
+        ImageIcon footer_pic = new ImageIcon("src/main/java/com/example/coproject/res/goattest_footer.png");
+        Image image2 = footer_pic.getImage().getScaledInstance(750, 50, Image.SCALE_SMOOTH);
+        bottomPannel.add(new JLabel(new ImageIcon(image2)));
+
+        JLabel bottom_info = new JLabel();
+        bottom_info.setText("CPU: GPU: RAM: OS:");
+        bottom_info.setHorizontalAlignment(JLabel.LEFT); //??????dc nu merge
+        bottomPannel.add(bottom_info);
 
 
         // set background for the window
