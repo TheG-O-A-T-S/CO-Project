@@ -53,9 +53,16 @@ public class LandingPage extends JFrame implements ActionListener {
         topPannel.setBackground(Color.black);
         topPannel.setPreferredSize(new Dimension(750,250));
 
-        ImageIcon imageIcon = new ImageIcon("src/main/java/com/example/coproject/res/goattest_banner.png");
-        Image image = imageIcon.getImage().getScaledInstance(750, 250, Image.SCALE_SMOOTH);
-        topPannel.add(new JLabel(new ImageIcon(image)));
+
+        //OLD BANNER
+//        ImageIcon imageIcon = new ImageIcon("src/main/java/com/example/coproject/res/goattest_banner.png");
+//        Image image = imageIcon.getImage().getScaledInstance(750, 250, Image.SCALE_SMOOTH);
+//        topPannel.add(new JLabel(new ImageIcon(image)));
+
+        //NEW BANNER
+        JLabel background_header = new JLabel("",new ImageIcon("src/main/java/com/example/coproject/res/goattest_banner.gif"), JLabel.CENTER);
+        background_header.setBounds(0,0,750,250);
+        topPannel.add(background_header);
 
 
         add(topPannel,BorderLayout.NORTH);
@@ -63,7 +70,7 @@ public class LandingPage extends JFrame implements ActionListener {
         // center panel
         JPanel centerPanel = new JPanel();
         centerPanel.setBackground(Color.black);
-        centerPanel.setLayout(new GridLayout(3,1,50,50));
+        centerPanel.setLayout(new GridLayout(4,1,50,50));
         centerPanel.add(algorithmButton1);
         centerPanel.add(algorithmButton2);
         centerPanel.add(testAlgorithmButton);
@@ -78,24 +85,25 @@ public class LandingPage extends JFrame implements ActionListener {
         ImageIcon footer_pic = new ImageIcon("src/main/java/com/example/coproject/res/goattest_footer.png");
         Image image2 = footer_pic.getImage().getScaledInstance(750, 50, Image.SCALE_SMOOTH);
 
-
-        JLabel bottom_info = new JLabel();
-        bottom_info.setText("CPU: GPU: RAM: OS:");
-        bottom_info.setHorizontalAlignment(JLabel.LEFT); //??????dc nu merge
-        bottom_info.setVerticalAlignment(JLabel.TOP);
-        bottomPannel.add(bottom_info);
-        bottomPannel.add(new JLabel(new ImageIcon(image2)));
-
-        //test layered pane
-
-//        JLayeredPane layeredPane = new JLayeredPane();
-//        layeredPane.setBackground(Color.CYAN);
-//        add(layeredPane);
+        JLabel background_footer = new JLabel("",new ImageIcon("src/main/java/com/example/coproject/res/goattest_footer.gif"),JLabel.CENTER);
+        background_footer.setBounds(0,0,750,50);
+        bottomPannel.add(background_footer);
 
 
 
-        // set background for the window
-//        getContentPane().setBackground(new Color(95, 158, 160));
+
+
+        JLabel sys_info = new JLabel();
+        sys_info.setText("CPU: GPU: RAM: OS:");
+        sys_info.setHorizontalAlignment(JLabel.CENTER);
+        sys_info.setVerticalAlignment(JLabel.TOP);
+        centerPanel.add(sys_info);
+//        bottomPannel.add(bottom_info);
+//        bottomPannel.add(new JLabel(new ImageIcon(image2)));
+
+
+//      set background for the window
+//      getContentPane().setBackground(new Color(95, 158, 160));
 
         //set icon for window
         ImageIcon icon_logo = new ImageIcon("src/main/java/com/example/coproject/res/goattest_icon.png");
