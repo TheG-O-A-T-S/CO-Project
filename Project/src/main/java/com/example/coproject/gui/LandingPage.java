@@ -22,17 +22,22 @@ public class LandingPage extends JFrame implements ActionListener {
         getRootPane().setBackground(new Color(95, 158, 160));
         setResizable(false);
 
+
+        //BUTTONS
+
         algorithmButton1 = new JButton("Cryptography");
         algorithmButton1.setBackground(Color.GRAY);
         algorithmButton1.setOpaque(true);
         algorithmButton1.setFocusable(false);
-        algorithmButton1.setBounds(200,100,100,50);
-
+        algorithmButton1.setBackground(Color.RED);
+        algorithmButton1.setBorder(BorderFactory.createBevelBorder(1));
 
         algorithmButton2 = new JButton("Memory");
         algorithmButton2.setBackground(Color.GRAY);
         algorithmButton2.setOpaque(true);
         algorithmButton2.setFocusable(false);
+        algorithmButton2.setBackground(Color.RED);
+        algorithmButton2.setBorder(BorderFactory.createBevelBorder(1));
 
         // change this one to whatever
         testAlgorithmButton = new JButton("Test algorithm");
@@ -40,6 +45,8 @@ public class LandingPage extends JFrame implements ActionListener {
         testAlgorithmButton.setBackground(Color.GRAY);
         testAlgorithmButton.setOpaque(true);
         testAlgorithmButton.setFocusable(false);
+        testAlgorithmButton.setBackground(Color.RED);
+        testAlgorithmButton.setBorder(BorderFactory.createBevelBorder(1));
 
         //top pannel
         JPanel topPannel = new JPanel();
@@ -55,7 +62,7 @@ public class LandingPage extends JFrame implements ActionListener {
 
         // center panel
         JPanel centerPanel = new JPanel();
-        centerPanel.setBackground(Color.RED);
+        centerPanel.setBackground(Color.black);
         centerPanel.setLayout(new GridLayout(3,1,50,50));
         centerPanel.add(algorithmButton1);
         centerPanel.add(algorithmButton2);
@@ -64,7 +71,7 @@ public class LandingPage extends JFrame implements ActionListener {
 
         //bottom panel
         JPanel bottomPannel = new JPanel();
-        bottomPannel.setBackground(Color.red);
+        bottomPannel.setBackground(Color.black);
         add(bottomPannel,BorderLayout.SOUTH);
         bottomPannel.setPreferredSize(new Dimension(750,50));
 
