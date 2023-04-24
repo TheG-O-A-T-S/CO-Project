@@ -1,0 +1,33 @@
+<component name="libraryTable">
+  <library name="lwjgl">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../jars/lwjgl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../jars/lwjgl-opengl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../jars/lwjgl-opengl-natives-windows.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../jars/lwjgl-opengl-natives-windows-x86.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../jars/lwjgl-opengl-natives-windows-arm64.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../jars/lwjgl-opengl-natives-macos.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../jars/lwjgl-opengl-natives-macos-arm64.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../jars/lwjgl-opengl-natives-linux.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../jars/lwjgl-opengl-natives-linux-arm64.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../jars/lwjgl-opengl-natives-linux-arm32.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../jars/lwjgl-natives-windows.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../jars/lwjgl-natives-windows-x86.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../jars/lwjgl-natives-windows-arm64.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../jars/lwjgl-natives-macos.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../jars/lwjgl-natives-macos-arm64.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../jars/lwjgl-natives-linux.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../jars/lwjgl-natives-linux-arm64.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../jars/lwjgl-natives-linux-arm32.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../jars/jcuda-natives-11.2.0-windows-x86_64.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../jars/jcuda-11.2.0.jar!/" />
+      <root url="file://$PROJECT_DIR$" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../jars/lwjgl-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../jars/lwjgl-opengl-sources.jar!/" />
+      <root url="file://$PROJECT_DIR$/src/main/java" />
+    </SOURCES>
+  </library>
+</component>
