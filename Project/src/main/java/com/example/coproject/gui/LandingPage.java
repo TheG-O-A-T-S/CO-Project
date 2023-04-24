@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import  javax.sound.sampled.*;
 
 public class LandingPage extends JFrame implements ActionListener {
     private JButton algorithmButton1;
@@ -23,7 +26,7 @@ public class LandingPage extends JFrame implements ActionListener {
         algorithmButton1.setBackground(Color.GRAY);
         algorithmButton1.setOpaque(true);
         algorithmButton1.setFocusable(false);
-        algorithmButton1.setVerticalAlignment(JButton.CENTER);
+        algorithmButton1.setBounds(200,100,100,50);
 
 
         algorithmButton2 = new JButton("Memory");
@@ -53,6 +56,7 @@ public class LandingPage extends JFrame implements ActionListener {
         // center panel
         JPanel centerPanel = new JPanel();
         centerPanel.setBackground(Color.RED);
+        centerPanel.setLayout(new GridLayout(3,1,50,50));
         centerPanel.add(algorithmButton1);
         centerPanel.add(algorithmButton2);
         centerPanel.add(testAlgorithmButton);
@@ -60,7 +64,7 @@ public class LandingPage extends JFrame implements ActionListener {
 
         //bottom panel
         JPanel bottomPannel = new JPanel();
-        bottomPannel.setBackground(Color.green);
+        bottomPannel.setBackground(Color.red);
         add(bottomPannel,BorderLayout.SOUTH);
         bottomPannel.setPreferredSize(new Dimension(750,50));
 
@@ -75,13 +79,22 @@ public class LandingPage extends JFrame implements ActionListener {
         bottomPannel.add(bottom_info);
         bottomPannel.add(new JLabel(new ImageIcon(image2)));
 
+        //test layered pane
+
+//        JLayeredPane layeredPane = new JLayeredPane();
+//        layeredPane.setBackground(Color.CYAN);
+//        add(layeredPane);
+
+
 
         // set background for the window
-        getContentPane().setBackground(new Color(95, 158, 160));
+//        getContentPane().setBackground(new Color(95, 158, 160));
 
         //set icon for window
         ImageIcon icon_logo = new ImageIcon("src/main/java/com/example/coproject/res/goattest_icon.png");
         setIconImage(icon_logo.getImage());
+
+
 
 
 
@@ -100,8 +113,19 @@ public class LandingPage extends JFrame implements ActionListener {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedAudioFileException, IOException,LineUnavailableException {
         // create and show the GUI
+
+
+        //Music test
+        File file = new File("src/main/java/com/example/coproject/res/goattest_OST.wav");
+        AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+        Clip clip = AudioSystem.getClip();
+        clip.open(audioStream);
+        clip.start();
+
+
+
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 new LandingPage();
