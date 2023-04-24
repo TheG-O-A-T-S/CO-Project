@@ -16,6 +16,7 @@ public class LandingPage extends JFrame implements ActionListener {
     private JButton testAlgorithmButton;
     private CryptographyBenchmark benchmarkTest1 = new CryptographyBenchmark();
     private MemoryBenchmark benchmarkTest2 = new MemoryBenchmark();
+    private System_info system_info = new System_info();
 
     public LandingPage() {
         // set up the main window
@@ -122,7 +123,8 @@ public class LandingPage extends JFrame implements ActionListener {
 
 
         JLabel sys_info = new JLabel();
-        sys_info.setText("CPU: GPU: RAM: OS:");
+        // add gpu and maybe ram
+        sys_info.setText("CPU: " + system_info.getCpu() + " OS: " + system_info.getOsName());
         sys_info.setHorizontalAlignment(JLabel.CENTER);
         sys_info.setVerticalAlignment(JLabel.TOP);
         centerPanel.add(sys_info);
