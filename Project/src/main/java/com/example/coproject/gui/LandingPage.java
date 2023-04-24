@@ -1,5 +1,7 @@
 package com.example.coproject.gui;
 
+import com.example.coproject.cuda_algorithms.CryptographyBenchmark;
+import com.example.coproject.cuda_algorithms.MemoryBenchmark;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,6 +14,8 @@ public class LandingPage extends JFrame implements ActionListener {
     private JButton algorithmButton1;
     private JButton algorithmButton2;
     private JButton testAlgorithmButton;
+    private CryptographyBenchmark benchmarkTest1 = new CryptographyBenchmark();
+    private MemoryBenchmark benchmarkTest2 = new MemoryBenchmark();
 
     public LandingPage() {
         // set up the main window
@@ -26,6 +30,16 @@ public class LandingPage extends JFrame implements ActionListener {
         //BUTTONS
 
         algorithmButton1 = new JButton("Cryptography");
+        algorithmButton1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    long time = benchmarkTest1.computeEncryptionDecryption1();
+                    // transition to another screen
+                } catch (NullPointerException n) {
+
+                }
+            }
+        });
         algorithmButton1.setBackground(Color.GRAY);
         algorithmButton1.setOpaque(true);
         algorithmButton1.setFocusable(false);
@@ -33,6 +47,16 @@ public class LandingPage extends JFrame implements ActionListener {
         algorithmButton1.setBorder(BorderFactory.createBevelBorder(1));
 
         algorithmButton2 = new JButton("Memory");
+        algorithmButton2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    long time = benchmarkTest2.computeAccessTime();
+                    // transition to another screen
+                } catch (NullPointerException n) {
+
+                }
+            }
+        });
         algorithmButton2.setBackground(Color.GRAY);
         algorithmButton2.setOpaque(true);
         algorithmButton2.setFocusable(false);
@@ -41,7 +65,11 @@ public class LandingPage extends JFrame implements ActionListener {
 
         // change this one to whatever
         testAlgorithmButton = new JButton("Test algorithm");
-        testAlgorithmButton.addActionListener(this);
+        testAlgorithmButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
         testAlgorithmButton.setBackground(Color.GRAY);
         testAlgorithmButton.setOpaque(true);
         testAlgorithmButton.setFocusable(false);
@@ -120,14 +148,6 @@ public class LandingPage extends JFrame implements ActionListener {
         
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        // handle button clicks
-        if (e.getSource() == testAlgorithmButton) {
-
-        }
-    }
-
     public static void main(String[] args) throws UnsupportedAudioFileException, IOException,LineUnavailableException {
         // create and show the GUI
 
@@ -146,5 +166,10 @@ public class LandingPage extends JFrame implements ActionListener {
                 new LandingPage();
             }
         });
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
     }
 }

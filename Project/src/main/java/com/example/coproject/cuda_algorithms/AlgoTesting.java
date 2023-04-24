@@ -7,7 +7,7 @@ public class AlgoTesting {
 
         // after the first call the time drops a lot and after the third it evens to around the same number
         for (int i = 0; i < 10; i++) {
-            benchmark1.computeEncryptionDecryption();
+            benchmark1.computeEncryptionDecryption1();
             benchmark2.computeAccessTime();
         }
 
