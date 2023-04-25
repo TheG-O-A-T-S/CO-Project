@@ -89,7 +89,8 @@ public class LandingPage extends JFrame implements ActionListener {
 //        topPannel.add(new JLabel(new ImageIcon(image)));
 
         //NEW BANNER
-        JLabel background_header = new JLabel("",new ImageIcon("src/main/java/com/example/coproject/res/goattest_banner.gif"), JLabel.CENTER);
+        JLabel background_header = new JLabel("",
+                new ImageIcon("src/main/java/com/example/coproject/res/goattest_banner.gif"), JLabel.CENTER);
         background_header.setBounds(0,0,750,250);
         topPannel.add(background_header);
 
@@ -99,22 +100,49 @@ public class LandingPage extends JFrame implements ActionListener {
         // center panel
         JPanel centerPanel = new JPanel();
         centerPanel.setBackground(Color.black);
-        centerPanel.setLayout(new GridLayout(4,1,50,50));
-        centerPanel.add(algorithmButton1);
-        centerPanel.add(algorithmButton2);
-        centerPanel.add(testAlgorithmButton);
-        add(centerPanel,BorderLayout.CENTER);
+        centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
+        centerPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        centerPanel.setAlignmentY(Component.CENTER_ALIGNMENT);
 
-        //bottom panel
+        centerPanel.add(Box.createVerticalGlue()); // add glue to center vertically
+
+        // add horizontal glue to center buttons
+        centerPanel.add(Box.createHorizontalGlue());
+        algorithmButton1.setAlignmentX(Component.CENTER_ALIGNMENT);
+        centerPanel.add(algorithmButton1);
+        centerPanel.add(Box.createHorizontalGlue());
+
+        centerPanel.add(Box.createRigidArea(new Dimension(0, 20))); // add vertical space between buttons
+
+        // add horizontal glue to center buttons
+        centerPanel.add(Box.createHorizontalGlue());
+        algorithmButton2.setAlignmentX(Component.CENTER_ALIGNMENT);
+        centerPanel.add(algorithmButton2);
+        centerPanel.add(Box.createHorizontalGlue());
+
+        centerPanel.add(Box.createRigidArea(new Dimension(0, 20))); // add vertical space between buttons
+
+        // add horizontal glue to center buttons
+        centerPanel.add(Box.createHorizontalGlue());
+        testAlgorithmButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        centerPanel.add(testAlgorithmButton);
+        centerPanel.add(Box.createHorizontalGlue());
+
+        centerPanel.add(Box.createVerticalGlue()); // add glue to center vertically
+
+        add(centerPanel, BorderLayout.CENTER);
+
+        // bottom panel
         JPanel bottomPannel = new JPanel();
         bottomPannel.setBackground(Color.black);
-        add(bottomPannel,BorderLayout.SOUTH);
+        add(bottomPannel, BorderLayout.SOUTH);
         bottomPannel.setPreferredSize(new Dimension(750,50));
 
         ImageIcon footer_pic = new ImageIcon("src/main/java/com/example/coproject/res/goattest_footer.png");
         Image image2 = footer_pic.getImage().getScaledInstance(750, 50, Image.SCALE_SMOOTH);
 
-        JLabel background_footer = new JLabel("",new ImageIcon("src/main/java/com/example/coproject/res/goattest_footer.gif"),JLabel.CENTER);
+        JLabel background_footer = new JLabel("",
+                new ImageIcon("src/main/java/com/example/coproject/res/goattest_footer.gif"),JLabel.CENTER);
         background_footer.setBounds(0,0,750,50);
         bottomPannel.add(background_footer);
 
