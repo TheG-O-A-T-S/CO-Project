@@ -47,6 +47,8 @@ public class LandingPage extends JFrame implements ActionListener {
         algorithmButton1.setBackground(Color.RED);
         algorithmButton1.setBorder(BorderFactory.createBevelBorder(1));
 
+
+
         algorithmButton2 = new JButton("Memory");
         algorithmButton2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -63,6 +65,7 @@ public class LandingPage extends JFrame implements ActionListener {
         algorithmButton2.setFocusable(false);
         algorithmButton2.setBackground(Color.RED);
         algorithmButton2.setBorder(BorderFactory.createBevelBorder(1));
+//        algorithmButton2.setPreferredSize(new Dimension(10, 200));
 
         // change this one to whatever
         testAlgorithmButton = new JButton("Test algorithm");
@@ -100,36 +103,10 @@ public class LandingPage extends JFrame implements ActionListener {
         // center panel
         JPanel centerPanel = new JPanel();
         centerPanel.setBackground(Color.black);
-        centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
-        centerPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        centerPanel.setAlignmentY(Component.CENTER_ALIGNMENT);
-
-        centerPanel.add(Box.createVerticalGlue()); // add glue to center vertically
-
-        // add horizontal glue to center buttons
-        centerPanel.add(Box.createHorizontalGlue());
-        algorithmButton1.setAlignmentX(Component.CENTER_ALIGNMENT);
+        centerPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 30, 110)); //30 is the horizontal gap and 20 is the vertical gap
         centerPanel.add(algorithmButton1);
-        centerPanel.add(Box.createHorizontalGlue());
-
-        centerPanel.add(Box.createRigidArea(new Dimension(0, 20))); // add vertical space between buttons
-
-        // add horizontal glue to center buttons
-        centerPanel.add(Box.createHorizontalGlue());
-        algorithmButton2.setAlignmentX(Component.CENTER_ALIGNMENT);
         centerPanel.add(algorithmButton2);
-        centerPanel.add(Box.createHorizontalGlue());
-
-        centerPanel.add(Box.createRigidArea(new Dimension(0, 20))); // add vertical space between buttons
-
-        // add horizontal glue to center buttons
-        centerPanel.add(Box.createHorizontalGlue());
-        testAlgorithmButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         centerPanel.add(testAlgorithmButton);
-        centerPanel.add(Box.createHorizontalGlue());
-
-        centerPanel.add(Box.createVerticalGlue()); // add glue to center vertically
-
         add(centerPanel, BorderLayout.CENTER);
 
         // bottom panel
