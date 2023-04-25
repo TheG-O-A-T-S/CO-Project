@@ -41,10 +41,10 @@ public class LandingPage extends JFrame implements ActionListener {
                 }
             }
         });
-        algorithmButton1.setBackground(Color.GRAY);
+
         algorithmButton1.setOpaque(true);
         algorithmButton1.setFocusable(false);
-        algorithmButton1.setBackground(Color.RED);
+        algorithmButton1.setBackground(Color.GRAY);
         algorithmButton1.setBorder(BorderFactory.createBevelBorder(1));
 
 
@@ -63,7 +63,7 @@ public class LandingPage extends JFrame implements ActionListener {
         algorithmButton2.setBackground(Color.GRAY);
         algorithmButton2.setOpaque(true);
         algorithmButton2.setFocusable(false);
-        algorithmButton2.setBackground(Color.RED);
+        algorithmButton2.setBackground(Color.GRAY);
         algorithmButton2.setBorder(BorderFactory.createBevelBorder(1));
 //        algorithmButton2.setPreferredSize(new Dimension(10, 200));
 
@@ -74,10 +74,10 @@ public class LandingPage extends JFrame implements ActionListener {
 
             }
         });
-        testAlgorithmButton.setBackground(Color.GRAY);
+
         testAlgorithmButton.setOpaque(true);
         testAlgorithmButton.setFocusable(false);
-        testAlgorithmButton.setBackground(Color.RED);
+        testAlgorithmButton.setBackground(Color.GRAY);
         testAlgorithmButton.setBorder(BorderFactory.createBevelBorder(1));
 
         //top pannel
