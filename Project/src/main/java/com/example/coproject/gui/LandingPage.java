@@ -70,11 +70,12 @@ public class LandingPage extends JFrame implements ActionListener {
         // center panel
         JPanel centerPanel = new JPanel();
         centerPanel.setBackground(Color.black);
-        centerPanel.setLayout(new GridLayout(4,1,50,50));
+//        centerPanel.setLayout(new GridLayout(4,1,0,0));
         centerPanel.add(algorithmButton1);
         centerPanel.add(algorithmButton2);
         centerPanel.add(testAlgorithmButton);
         add(centerPanel,BorderLayout.CENTER);
+
 
         //bottom panel
         JPanel bottomPannel = new JPanel();
