@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
+import java.security.InvalidKeyException;
 import  javax.sound.sampled.*;
 
 public class LandingPage extends JFrame implements ActionListener {
@@ -34,8 +35,9 @@ public class LandingPage extends JFrame implements ActionListener {
         algorithmButton1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    long time = benchmarkTest1.computeEncryptionDecryption1();
-                    // transition to another screen
+                    // transition to another screen and require an input string
+                    String s = "Ana are mere";
+                    long time = benchmarkTest1.computeEncryptionDecryption1(s);
                 } catch (NullPointerException n) {
 
                 }
