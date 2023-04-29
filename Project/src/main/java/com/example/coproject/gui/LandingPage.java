@@ -32,18 +32,6 @@ public class LandingPage extends JFrame implements ActionListener {
         //BUTTONS
 
         algorithmButton1 = new JButton("Cryptography");
-        algorithmButton1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    // transition to another screen and require an input string
-                    String s = "Ana are mere";
-                    long time = benchmarkTest1.computeEncryptionDecryption1(s);
-                } catch (NullPointerException n) {
-
-                }
-            }
-        });
-
         algorithmButton1.setOpaque(true);
         algorithmButton1.setFocusable(false);
         algorithmButton1.setBackground(Color.GRAY);
@@ -52,16 +40,6 @@ public class LandingPage extends JFrame implements ActionListener {
 
 
         algorithmButton2 = new JButton("Memory");
-        algorithmButton2.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    long time = benchmarkTest2.computeAccessTime();
-                    // transition to another screen
-                } catch (NullPointerException n) {
-
-                }
-            }
-        });
         algorithmButton2.setBackground(Color.GRAY);
         algorithmButton2.setOpaque(true);
         algorithmButton2.setFocusable(false);
@@ -70,17 +48,17 @@ public class LandingPage extends JFrame implements ActionListener {
 //        algorithmButton2.setPreferredSize(new Dimension(10, 200));
 
         // change this one to whatever
-        testAlgorithmButton = new JButton("Test algorithm");
-        testAlgorithmButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-
-        testAlgorithmButton.setOpaque(true);
-        testAlgorithmButton.setFocusable(false);
-        testAlgorithmButton.setBackground(Color.GRAY);
-        testAlgorithmButton.setBorder(BorderFactory.createBevelBorder(1));
+//        testAlgorithmButton = new JButton("Test algorithm");
+//        testAlgorithmButton.addActionListener(new ActionListener() {
+//            public void actionPerformed(ActionEvent e) {
+//
+//            }
+//        });
+//
+//        testAlgorithmButton.setOpaque(true);
+//        testAlgorithmButton.setFocusable(false);
+//        testAlgorithmButton.setBackground(Color.GRAY);
+//        testAlgorithmButton.setBorder(BorderFactory.createBevelBorder(1));
 
         //top pannel
         JPanel topPannel = new JPanel();
@@ -108,7 +86,7 @@ public class LandingPage extends JFrame implements ActionListener {
         centerPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 30, 110)); //30 is the horizontal gap and 20 is the vertical gap
         centerPanel.add(algorithmButton1);
         centerPanel.add(algorithmButton2);
-        centerPanel.add(testAlgorithmButton);
+//        centerPanel.add(testAlgorithmButton);
         add(centerPanel, BorderLayout.CENTER);
 
         // bottom panel
@@ -134,13 +112,46 @@ public class LandingPage extends JFrame implements ActionListener {
         sys_info.setText("CPU: " + system_info.getCpu() + " OS: " + system_info.getOsName());
         sys_info.setHorizontalAlignment(JLabel.CENTER);
         sys_info.setVerticalAlignment(JLabel.TOP);
-        centerPanel.add(sys_info);
+        bottomPannel.add(sys_info); // move it
 //        bottomPannel.add(bottom_info);
 //        bottomPannel.add(new JLabel(new ImageIcon(image2)));
 
 
 //      set background for the window
 //      getContentPane().setBackground(new Color(95, 158, 160));
+
+        algorithmButton1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    // transition to another screen and require an input string
+                    String s = "Ana are mere";
+                    long time = benchmarkTest1.computeEncryptionDecryption1(s);
+                    topPannel.setVisible(false);
+                    centerPanel.setVisible(false);
+                    bottomPannel.setVisible(false);
+
+                    // make the new pannels visible
+                } catch (NullPointerException n) {
+
+                }
+            }
+        });
+
+        algorithmButton2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    long time = benchmarkTest2.computeAccessTime();
+                    // transition to another screen
+                    topPannel.setVisible(false);
+                    centerPanel.setVisible(false);
+                    bottomPannel.setVisible(false);
+
+                    // make the new pannels visible
+                } catch (NullPointerException n) {
+
+                }
+            }
+        });
 
         //set icon for window
         ImageIcon icon_logo = new ImageIcon("src/main/java/com/example/coproject/res/goattest_icon.png");
