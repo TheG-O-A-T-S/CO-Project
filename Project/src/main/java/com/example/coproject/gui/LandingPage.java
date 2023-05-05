@@ -147,6 +147,24 @@ public class LandingPage extends JFrame implements ActionListener {
                     centerPanel.setVisible(false);
                     bottomPannel.setVisible(false);
 
+                    JPanel panel1 = new JPanel();
+                    panel1.setBackground(Color.white);
+                    panel1.setPreferredSize(new Dimension(700, 400));
+
+                    // add gif to panel1
+                    ImageIcon gif = new ImageIcon("");
+                    JLabel gifLabel = new JLabel(gif);
+                    panel1.add(gifLabel);
+
+                    // add text input to panel1
+                    JTextField textField1 = new JTextField();
+                    textField1.setPreferredSize(new Dimension(300, 30));
+                    panel1.add(textField1);
+
+                    // add panel1 to centerPanel
+                    centerPanel.add(panel1);
+                    panel1.setVisible(true);
+
                     // make the new pannels visible
                 } catch (NullPointerException n) {
 
@@ -163,6 +181,23 @@ public class LandingPage extends JFrame implements ActionListener {
                     centerPanel.setVisible(false);
                     bottomPannel.setVisible(false);
 
+                    JPanel panel2 = new JPanel();
+                    panel2.setBackground(Color.lightGray);
+                    panel2.setPreferredSize(new Dimension(700, 400));
+
+                    // add gif to panel2
+                    ImageIcon gif = new ImageIcon("");
+                    JLabel gifLabel = new JLabel(gif);
+                    panel2.add(gifLabel);
+
+                    // add text input to panel2
+                    JTextField textField2 = new JTextField();
+                    textField2.setPreferredSize(new Dimension(300, 30));
+                    panel2.add(textField2);
+
+                    // add panel2 to centerPanel
+                    centerPanel.add(panel2);
+                    panel2.setVisible(true);
                     // make the new pannels visible
                 } catch (NullPointerException n) {
 
