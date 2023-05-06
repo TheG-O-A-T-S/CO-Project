@@ -155,32 +155,56 @@ public class LandingPage extends JFrame implements ActionListener {
         algorithmButton1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    // transition to another screen and require an input string
-                    String s = "Ana are mere";
-                    long time = benchmarkTest1.computeEncryptionDecryption1(s);
                     topPannel.setVisible(false);
                     centerPanel.setVisible(false);
                     bottomPannel.setVisible(false);
 
-                    JPanel panel1 = new JPanel();
-                    panel1.setBackground(Color.white);
-                    panel1.setPreferredSize(new Dimension(700, 400));
+                    JPanel topPanel1 = new JPanel();
+                    topPanel1.setBackground(Color.lightGray);
+                    topPanel1.setPreferredSize(new Dimension(700, 100));
+                    topPanel1.add(background_header);
+                    add(topPanel1, BorderLayout.NORTH);
 
-                    // add gif to panel1
-                    ImageIcon gif = new ImageIcon("");
-                    JLabel gifLabel = new JLabel(gif);
-                    panel1.add(gifLabel);
+                    JPanel centerPanel1 = new JPanel();
+                    centerPanel1.setBackground(Color.white);
+                    centerPanel1.setLayout(new BoxLayout(centerPanel1, BoxLayout.PAGE_AXIS));
+                    centerPanel1.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+                    // add text explaining what needs to be done
+                    JLabel textLabel = new JLabel("Input a string for the goat to encrypt:");
+                    textLabel.setPreferredSize(new Dimension(200, 30));
+                    centerPanel1.add(Box.createRigidArea(new Dimension(0, 30)));
+                    centerPanel1.add(textLabel);
+                    centerPanel1.add(Box.createRigidArea(new Dimension(0, 10)));
 
                     // add text input to panel1
                     JTextField textField1 = new JTextField();
                     textField1.setPreferredSize(new Dimension(300, 30));
-                    panel1.add(textField1);
+                    centerPanel1.add(textField1);
+                    centerPanel1.add(Box.createRigidArea(new Dimension(0, 10)));
 
-                    // add panel1 to centerPanel
-                    centerPanel.add(panel1);
-                    panel1.setVisible(true);
+                    // add start button to panel1
+                    JButton startButton = new JButton("Start");
+                    startButton.setPreferredSize(new Dimension(80, 30));
+                    centerPanel1.add(startButton);
+                    centerPanel1.add(Box.createVerticalGlue());
 
-                    // make the new pannels visible
+                    add(centerPanel1, BorderLayout.CENTER);
+
+                    JPanel bottomPanel1 = new JPanel();
+                    bottomPanel1.setBackground(Color.lightGray);
+                    bottomPanel1.setPreferredSize(new Dimension(700, 50));
+                    bottomPanel1.add(background_footer);
+                    add(bottomPanel1, BorderLayout.SOUTH);
+
+                    startButton.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                            String inputString = textField1.getText();
+                            long time = benchmarkTest1.computeEncryptionDecryption1(inputString);
+                            System.out.println(inputString);
+                        }
+                    });
+
                 } catch (NullPointerException n) {
 
                 }
