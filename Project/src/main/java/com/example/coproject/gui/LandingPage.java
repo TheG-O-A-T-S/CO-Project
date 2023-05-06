@@ -31,6 +31,7 @@ public class LandingPage extends JFrame implements ActionListener {
 
         //BUTTONS
 
+        // ! schimba aici poza de la buton ca arata urat rau
         ImageIcon button_img = new ImageIcon("src/main/java/com/example/coproject/res/button.png");
         Image img = button_img.getImage().getScaledInstance(200, 70, Image.SCALE_SMOOTH);
         button_img = new ImageIcon(img);
@@ -62,6 +63,20 @@ public class LandingPage extends JFrame implements ActionListener {
         algorithmButton2.setVerticalTextPosition(SwingConstants.CENTER);
         algorithmButton2.setBounds(300, 100, button_img.getIconWidth(), button_img.getIconHeight());
         algorithmButton2.setText("Memory");
+
+        // set font size for button text
+        Font buttonFont = new Font("Arial", Font.BOLD, 16); // adjust size as needed
+        algorithmButton1.setFont(buttonFont);
+        algorithmButton2.setFont(buttonFont);
+
+        // make photo background fit the entire button size
+        algorithmButton1.setBorderPainted(false);
+        algorithmButton1.setContentAreaFilled(false);
+        algorithmButton1.setIconTextGap(0);
+        algorithmButton2.setBorderPainted(false);
+        algorithmButton2.setContentAreaFilled(false);
+        algorithmButton2.setIconTextGap(0);
+
 //        algorithmButton2.setPreferredSize(new Dimension(10, 200));
 
         // change this one to whatever
