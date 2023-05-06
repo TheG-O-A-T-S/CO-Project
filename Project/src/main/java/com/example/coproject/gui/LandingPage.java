@@ -191,6 +191,7 @@ public class LandingPage extends JFrame implements ActionListener {
 
                     add(centerPanel1, BorderLayout.CENTER);
 
+
                     JPanel bottomPanel1 = new JPanel();
                     bottomPanel1.setBackground(Color.lightGray);
                     bottomPanel1.setPreferredSize(new Dimension(700, 50));
@@ -205,6 +206,9 @@ public class LandingPage extends JFrame implements ActionListener {
                         }
                     });
 
+                    // modify such that the user can choose how many times to perform the algorithm
+                    // score = timesComputed * lenOfString / time
+
                 } catch (NullPointerException n) {
 
                 }
@@ -214,7 +218,10 @@ public class LandingPage extends JFrame implements ActionListener {
         algorithmButton2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    long time = benchmarkTest2.computeAccessTime();
+                    // numElements = the block of memory to be accessed
+                    // change this from a textfield or something
+                    int numElements = 1000;
+                    long time = benchmarkTest2.computeAccessTime(1000);
                     // transition to another screen
                     topPannel.setVisible(false);
                     centerPanel.setVisible(false);
@@ -238,6 +245,8 @@ public class LandingPage extends JFrame implements ActionListener {
                     centerPanel.add(panel2);
                     panel2.setVisible(true);
                     // make the new pannels visible
+
+                    // score = timesComputed * blockOfMemory / time
                 } catch (NullPointerException n) {
 
                 }

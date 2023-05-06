@@ -8,7 +8,7 @@ public class AlgoTesting {
         // after the first call the time drops a lot and after the third it evens to around the same number
         for (int i = 0; i < 10; i++) {
             benchmark1.computeEncryptionDecryption1("Ana are mere foarte multe");
-            benchmark2.computeAccessTime();
+            benchmark2.computeAccessTime(1000);
         }
 
     }
