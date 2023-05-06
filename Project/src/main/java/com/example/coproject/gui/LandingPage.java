@@ -31,20 +31,52 @@ public class LandingPage extends JFrame implements ActionListener {
 
         //BUTTONS
 
-        algorithmButton1 = new JButton("Cryptography");
+        // ! schimba aici poza de la buton ca arata urat rau
+        ImageIcon button_img = new ImageIcon("src/main/java/com/example/coproject/res/button.png");
+        Image img = button_img.getImage().getScaledInstance(200, 70, Image.SCALE_SMOOTH);
+        button_img = new ImageIcon(img);
+
+        algorithmButton1 = new JButton();
+        algorithmButton1.setIcon(button_img);
         algorithmButton1.setOpaque(true);
         algorithmButton1.setFocusable(false);
         algorithmButton1.setBackground(Color.GRAY);
-        algorithmButton1.setBorder(BorderFactory.createBevelBorder(1));
+        //algorithmButton1.setBorder(BorderFactory.createBevelBorder(1));
+        algorithmButton1.setLayout(null);
+        algorithmButton1.setHorizontalTextPosition(SwingConstants.CENTER);
+        algorithmButton1.setVerticalTextPosition(SwingConstants.CENTER);
+        algorithmButton1.setBounds(100, 100, button_img.getIconWidth(), button_img.getIconHeight());
+        algorithmButton1.setText("Cryptography");
 
 
 
-        algorithmButton2 = new JButton("Memory");
-        algorithmButton2.setBackground(Color.GRAY);
+
+
+        algorithmButton2 = new JButton();
+        algorithmButton2.setIcon(button_img);
         algorithmButton2.setOpaque(true);
         algorithmButton2.setFocusable(false);
         algorithmButton2.setBackground(Color.GRAY);
-        algorithmButton2.setBorder(BorderFactory.createBevelBorder(1));
+//        algorithmButton2.setBorder(BorderFactory.createBevelBorder(1));
+        algorithmButton2.setLayout(null);
+        algorithmButton2.setHorizontalTextPosition(SwingConstants.CENTER);
+        algorithmButton2.setVerticalTextPosition(SwingConstants.CENTER);
+        algorithmButton2.setBounds(300, 100, button_img.getIconWidth(), button_img.getIconHeight());
+        algorithmButton2.setText("Memory");
+
+        // set font size for button text
+        Font buttonFont = new Font("Arial", Font.BOLD, 16); // adjust size as needed
+        algorithmButton1.setFont(buttonFont);
+        algorithmButton2.setFont(buttonFont);
+
+        // make photo background fit the entire button size
+        algorithmButton1.setBorderPainted(false);
+        algorithmButton1.setContentAreaFilled(false);
+        algorithmButton1.setIconTextGap(0);
+        algorithmButton2.setBorderPainted(false);
+        algorithmButton2.setContentAreaFilled(false);
+        algorithmButton2.setIconTextGap(0);
+
 //        algorithmButton2.setPreferredSize(new Dimension(10, 200));
 
         // change this one to whatever
@@ -130,6 +162,24 @@ public class LandingPage extends JFrame implements ActionListener {
                     centerPanel.setVisible(false);
                     bottomPannel.setVisible(false);
 
+                    JPanel panel1 = new JPanel();
+                    panel1.setBackground(Color.white);
+                    panel1.setPreferredSize(new Dimension(700, 400));
+
+                    // add gif to panel1
+                    ImageIcon gif = new ImageIcon("");
+                    JLabel gifLabel = new JLabel(gif);
+                    panel1.add(gifLabel);
+
+                    // add text input to panel1
+                    JTextField textField1 = new JTextField();
+                    textField1.setPreferredSize(new Dimension(300, 30));
+                    panel1.add(textField1);
+
+                    // add panel1 to centerPanel
+                    centerPanel.add(panel1);
+                    panel1.setVisible(true);
+
                     // make the new pannels visible
                 } catch (NullPointerException n) {
 
@@ -146,6 +196,23 @@ public class LandingPage extends JFrame implements ActionListener {
                     centerPanel.setVisible(false);
                     bottomPannel.setVisible(false);
 
+                    JPanel panel2 = new JPanel();
+                    panel2.setBackground(Color.lightGray);
+                    panel2.setPreferredSize(new Dimension(700, 400));
+
+                    // add gif to panel2
+                    ImageIcon gif = new ImageIcon("");
+                    JLabel gifLabel = new JLabel(gif);
+                    panel2.add(gifLabel);
+
+                    // add text input to panel2
+                    JTextField textField2 = new JTextField();
+                    textField2.setPreferredSize(new Dimension(300, 30));
+                    panel2.add(textField2);
+
+                    // add panel2 to centerPanel
+                    centerPanel.add(panel2);
+                    panel2.setVisible(true);
                     // make the new pannels visible
                 } catch (NullPointerException n) {
 
