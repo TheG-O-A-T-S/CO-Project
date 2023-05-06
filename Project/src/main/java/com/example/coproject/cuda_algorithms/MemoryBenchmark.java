@@ -11,7 +11,7 @@ import jcuda.driver.CUdevice;
 import java.util.ArrayList;
 
 public class MemoryBenchmark {
-    public long computeAccessTime(){
+    public long computeAccessTime(int numElements){
         // Initialize the JCuda runtime and driver
         JCuda.setExceptionsEnabled(true);
         JCudaDriver.setExceptionsEnabled(true);
@@ -26,7 +26,6 @@ public class MemoryBenchmark {
         JCudaDriver.cuCtxCreate(context, 0, device);
 
         // Allocate memory on the GPU device
-        int numElements = 1000;
         int elementSize = Sizeof.INT;
         int memSize = numElements * elementSize;
         CUdeviceptr d_mem = new CUdeviceptr();
