@@ -18,6 +18,7 @@ public class LandingPage extends JFrame implements ActionListener {
     private CryptographyBenchmark benchmarkTest1 = new CryptographyBenchmark();
     private MemoryBenchmark benchmarkTest2 = new MemoryBenchmark();
     private System_info system_info = new System_info();
+    public int counter;
 
     public LandingPage() {
         // set up the main window
@@ -169,28 +170,94 @@ public class LandingPage extends JFrame implements ActionListener {
                     centerPanel1.setBackground(Color.white);
                     centerPanel1.setLayout(new BoxLayout(centerPanel1, BoxLayout.PAGE_AXIS));
                     centerPanel1.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    centerPanel1.setBorder(BorderFactory.createEmptyBorder(20, 50, 20, 50)); // Add horizontal padding
 
                     // add text explaining what needs to be done
                     JLabel textLabel = new JLabel("Input a string for the goat to encrypt:");
-                    textLabel.setPreferredSize(new Dimension(200, 30));
-                    centerPanel1.add(Box.createRigidArea(new Dimension(0, 30)));
+                    textLabel.setPreferredSize(new Dimension(300, 30));
+                    textLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
                     centerPanel1.add(textLabel);
                     centerPanel1.add(Box.createRigidArea(new Dimension(0, 10)));
 
                     // add text input to panel1
                     JTextField textField1 = new JTextField();
-                    textField1.setPreferredSize(new Dimension(300, 30));
+                    textField1.setPreferredSize(new Dimension(300, 20)); // Changed height to 20
+                    textField1.setAlignmentX(Component.CENTER_ALIGNMENT);
                     centerPanel1.add(textField1);
                     centerPanel1.add(Box.createRigidArea(new Dimension(0, 10)));
 
+                    ImageIcon button_img = new ImageIcon("src/main/java/com/example/coproject/res/button.png");
+                    Image img = button_img.getImage().getScaledInstance(200, 70, Image.SCALE_SMOOTH);
+                    button_img = new ImageIcon(img);
+
+                    // add buttons to panel1
+                    JPanel buttonsPanel = new JPanel();
+                    buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.LINE_AXIS));
+                    buttonsPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+                    JButton plusButton = new JButton("+ " + counter);
+                    plusButton.setIcon(button_img);
+                    plusButton.setOpaque(true);
+                    plusButton.setFocusable(false);
+
+                    plusButton.setLayout(null);
+                    plusButton.setHorizontalTextPosition(SwingConstants.CENTER);
+                    plusButton.setVerticalTextPosition(SwingConstants.CENTER);
+                    plusButton.setBounds(300, 100, button_img.getIconWidth(), button_img.getIconHeight());
+
+                    // set font size for button text
+                    Font buttonFont = new Font("Arial", Font.BOLD, 16); // adjust size as needed
+                    plusButton.setFont(buttonFont);
+
+                    // make photo background fit the entire button size
+                    plusButton.setBorderPainted(false);
+                    plusButton.setContentAreaFilled(false);
+                    plusButton.setIconTextGap(0);
+                    plusButton.setPreferredSize(new Dimension(30, 60)); // Set size for + button
+                    plusButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    counter = 1;
+
+                    //  add counter label to button
+//                    JLabel counterLabel = new JLabel(String.valueOf(counter));
+//                    counterLabel.setBounds(10, 0, 20, 20);
+//                    counterLabel.setForeground(Color.white);
+//                    counterLabel.setFont(buttonFont);
+//                    plusButton.add(counterLabel);
+
+                    plusButton.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                            counter++;
+//                            counterLabel.setText(String.valueOf(counter));
+                        }
+                    });
+
+                    buttonsPanel.add(plusButton);
+
+                    centerPanel1.add(buttonsPanel);
+                    centerPanel1.add(Box.createVerticalGlue());
+
+                    ImageIcon start_button_img = new ImageIcon("src/main/java/com/example/coproject/res/start_button.png");
+                    Image img_start = start_button_img.getImage().getScaledInstance(200, 70, Image.SCALE_SMOOTH);
+                    start_button_img = new ImageIcon(img_start);
+
                     // add start button to panel1
                     JButton startButton = new JButton("Start");
-                    startButton.setPreferredSize(new Dimension(80, 30));
+                    startButton.setIcon(start_button_img);
+                    startButton.setOpaque(true);
+                    startButton.setFocusable(false);
+                    startButton.setLayout(null);
+                    startButton.setHorizontalTextPosition(SwingConstants.CENTER);
+                    startButton.setVerticalTextPosition(SwingConstants.CENTER);
+                    startButton.setBounds(300, 100, start_button_img.getIconWidth(), start_button_img.getIconHeight());
+                    startButton.setBorderPainted(false);
+                    startButton.setContentAreaFilled(false);
+                    startButton.setIconTextGap(0);
+                    startButton.setPreferredSize(new Dimension(30, 60)); // Set size
+                    startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
                     centerPanel1.add(startButton);
                     centerPanel1.add(Box.createVerticalGlue());
 
                     add(centerPanel1, BorderLayout.CENTER);
-
 
                     JPanel bottomPanel1 = new JPanel();
                     bottomPanel1.setBackground(Color.lightGray);
@@ -200,9 +267,19 @@ public class LandingPage extends JFrame implements ActionListener {
 
                     startButton.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
+                            long score;
                             String inputString = textField1.getText();
-                            long time = benchmarkTest1.computeEncryptionDecryption1(inputString);
-                            System.out.println(inputString);
+                            long averageTime = 0;
+                            for (int i = 0; i < counter; i++) {
+                                long time = benchmarkTest1.computeEncryptionDecryption1(inputString);
+                                averageTime += time;
+                            }
+
+                            averageTime /= counter;
+
+                            score = counter * inputString.length() / averageTime;
+
+                            // System.out.println(inputString);
                         }
                     });
 
