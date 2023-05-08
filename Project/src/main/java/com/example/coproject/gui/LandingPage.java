@@ -182,10 +182,10 @@ public class LandingPage extends JFrame implements ActionListener {
 
 // add text input to panel1
                     JTextField textField1 = new JTextField();
-                    textField1.setPreferredSize(new Dimension(300, 20)); // Changed height to 20
+                    textField1.setPreferredSize(new Dimension(50, 20));
                     textField1.setAlignmentX(Component.CENTER_ALIGNMENT);
                     centerPanel1.add(textField1);
-                    centerPanel1.add(Box.createRigidArea(new Dimension(0, 10)));
+                    centerPanel1.add(Box.createRigidArea(new Dimension(0, 50)));
 
                     ImageIcon button_img = new ImageIcon("src/main/java/com/example/coproject/res/button.png");
                     Image img = button_img.getImage().getScaledInstance(200, 70, Image.SCALE_SMOOTH);
@@ -237,6 +237,7 @@ public class LandingPage extends JFrame implements ActionListener {
 
                     centerPanel1.add(buttonsPanel);
                     centerPanel1.add(Box.createVerticalGlue());
+                    centerPanel1.add(Box.createRigidArea(new Dimension(0, 100)));
 
                     ImageIcon start_button_img = new ImageIcon("src/main/java/com/example/coproject/res/start_button.png");
                     Image img_start = start_button_img.getImage().getScaledInstance(200, 70, Image.SCALE_SMOOTH);
@@ -267,8 +268,28 @@ public class LandingPage extends JFrame implements ActionListener {
                     bottomPanel1.add(background_footer);
                     add(bottomPanel1, BorderLayout.SOUTH);
 
+                    ImageIcon finalButton_img = button_img;
                     startButton.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
+
+                            // Disable center panel
+                            centerPanel1.setVisible(false);
+
+                            // Create new panel with loading gif
+                            JPanel loadingPanel = new JPanel();
+                            loadingPanel.setBackground(Color.black);
+                            loadingPanel.setLayout(new BoxLayout(loadingPanel, BoxLayout.PAGE_AXIS));
+                            loadingPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+                            loadingPanel.setBorder(BorderFactory.createEmptyBorder(20, 50, 20, 50)); // Add horizontal padding
+
+                            // Add loading gif to panel
+                            ImageIcon loadingIcon = new ImageIcon("path/to/loading.gif");
+                            JLabel loadingLabel = new JLabel(loadingIcon);
+                            loadingPanel.add(loadingLabel);
+
+                            // Add panel to frame
+                            add(loadingPanel, BorderLayout.CENTER);
+
                             long score;
                             String inputString = textField1.getText();
                             long averageTime = 0;
@@ -280,6 +301,80 @@ public class LandingPage extends JFrame implements ActionListener {
                             averageTime /= counter;
 
                             score = counter * inputString.length() / averageTime;
+
+                            // Switch to another screen after 1 * counter seconds
+                            Timer timer = new Timer(1000 * counter, new ActionListener() {
+                                public void actionPerformed(ActionEvent e) {
+                                    // Remove loading panel
+                                    remove(loadingPanel);
+
+                                    // Add new panel
+                                    JPanel newPanel = new JPanel();
+                                    newPanel.setBackground(Color.black);
+                                    newPanel.setLayout(new BoxLayout(newPanel, BoxLayout.Y_AXIS));
+
+                                    // Display the score
+                                    JLabel textLabel = new JLabel("Your score: " + score);
+                                    textLabel.setPreferredSize(new Dimension(300, 30));
+                                    textLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+                                    textLabel.setForeground(Color.white); // set text color to white
+                                    newPanel.add(Box.createRigidArea(new Dimension(0, 50))); // add spacing
+                                    newPanel.add(textLabel);
+                                    newPanel.add(Box.createRigidArea(new Dimension(0, 50))); // add spacing
+
+                                    // Add return button
+                                    JButton returnButton = new JButton("Return");
+                                    returnButton.setIcon(finalButton_img);
+                                    returnButton.setOpaque(true);
+                                    returnButton.setFocusable(false);
+
+                                    // Set button size and position
+                                    int buttonWidth = 200;
+                                    int buttonHeight = 80;
+                                    int x = (newPanel.getWidth() - buttonWidth) / 2;
+                                    int y = (newPanel.getHeight() - buttonHeight) / 2;
+                                    returnButton.setBounds(x, y, buttonWidth, buttonHeight);
+
+                                    // Set button text properties
+                                    Font buttonFont = new Font("Arial", Font.BOLD, 24); // adjust size as needed
+                                    returnButton.setFont(buttonFont);
+                                    returnButton.setHorizontalTextPosition(SwingConstants.CENTER);
+                                    returnButton.setVerticalTextPosition(SwingConstants.CENTER);
+
+                                    // Set button background and border
+                                    returnButton.setBorderPainted(false);
+                                    returnButton.setContentAreaFilled(false);
+                                    returnButton.setIconTextGap(0);
+                                    returnButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+                                    newPanel.add(returnButton);
+                                    add(newPanel, BorderLayout.CENTER);
+
+                                    // Refresh frame
+                                    revalidate();
+                                    repaint();
+
+                                    // return to main screen
+                                    returnButton.addActionListener(new ActionListener() {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            topPanel1.setVisible(false);
+                                            newPanel.setVisible(false);
+                                            bottomPanel1.setVisible(false);
+
+                                            topPannel.setVisible(true);
+                                            centerPanel.setVisible(true);
+                                            bottomPannel.setVisible(true);
+                                        }
+                                    });
+
+                                }
+                            });
+                            timer.setRepeats(false);
+                            timer.start();
+
+
+
 
                             // System.out.println(inputString);
                         }
