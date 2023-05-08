@@ -167,19 +167,20 @@ public class LandingPage extends JFrame implements ActionListener {
                     add(topPanel1, BorderLayout.NORTH);
 
                     JPanel centerPanel1 = new JPanel();
-                    centerPanel1.setBackground(Color.white);
+                    centerPanel1.setBackground(Color.black); // set background to black
                     centerPanel1.setLayout(new BoxLayout(centerPanel1, BoxLayout.PAGE_AXIS));
                     centerPanel1.setAlignmentX(Component.CENTER_ALIGNMENT);
                     centerPanel1.setBorder(BorderFactory.createEmptyBorder(20, 50, 20, 50)); // Add horizontal padding
 
-                    // add text explaining what needs to be done
+// add text explaining what needs to be done
                     JLabel textLabel = new JLabel("Input a string for the goat to encrypt:");
                     textLabel.setPreferredSize(new Dimension(300, 30));
                     textLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    textLabel.setForeground(Color.white); // set text color to white
                     centerPanel1.add(textLabel);
                     centerPanel1.add(Box.createRigidArea(new Dimension(0, 10)));
 
-                    // add text input to panel1
+// add text input to panel1
                     JTextField textField1 = new JTextField();
                     textField1.setPreferredSize(new Dimension(300, 20)); // Changed height to 20
                     textField1.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -190,12 +191,13 @@ public class LandingPage extends JFrame implements ActionListener {
                     Image img = button_img.getImage().getScaledInstance(200, 70, Image.SCALE_SMOOTH);
                     button_img = new ImageIcon(img);
 
-                    // add buttons to panel1
+// add buttons to panel1
                     JPanel buttonsPanel = new JPanel();
+                    buttonsPanel.setBackground(Color.black);
                     buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.LINE_AXIS));
                     buttonsPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-                    JButton plusButton = new JButton("+ " + counter);
+                    JButton plusButton = new JButton("+");
                     plusButton.setIcon(button_img);
                     plusButton.setOpaque(true);
                     plusButton.setFocusable(false);
@@ -205,11 +207,11 @@ public class LandingPage extends JFrame implements ActionListener {
                     plusButton.setVerticalTextPosition(SwingConstants.CENTER);
                     plusButton.setBounds(300, 100, button_img.getIconWidth(), button_img.getIconHeight());
 
-                    // set font size for button text
+// set font size for button text
                     Font buttonFont = new Font("Arial", Font.BOLD, 16); // adjust size as needed
                     plusButton.setFont(buttonFont);
 
-                    // make photo background fit the entire button size
+// make photo background fit the entire button size
                     plusButton.setBorderPainted(false);
                     plusButton.setContentAreaFilled(false);
                     plusButton.setIconTextGap(0);
@@ -217,17 +219,17 @@ public class LandingPage extends JFrame implements ActionListener {
                     plusButton.setAlignmentX(Component.CENTER_ALIGNMENT);
                     counter = 1;
 
-                    //  add counter label to button
-//                    JLabel counterLabel = new JLabel(String.valueOf(counter));
-//                    counterLabel.setBounds(10, 0, 20, 20);
-//                    counterLabel.setForeground(Color.white);
-//                    counterLabel.setFont(buttonFont);
-//                    plusButton.add(counterLabel);
+//  add counter label to button
+                    JLabel counterLabel = new JLabel("Compute algorithm " + String.valueOf(counter) + " times");
+                    counterLabel.setBounds(0, 0, 300, 20);
+                    counterLabel.setForeground(Color.white);
+                    counterLabel.setFont(buttonFont);
+                    plusButton.add(counterLabel);
 
                     plusButton.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
                             counter++;
-//                            counterLabel.setText(String.valueOf(counter));
+                            counterLabel.setText("Compute algorithm " + String.valueOf(counter) + " times"); // updated counter label text
                         }
                     });
 
@@ -241,7 +243,7 @@ public class LandingPage extends JFrame implements ActionListener {
                     start_button_img = new ImageIcon(img_start);
 
                     // add start button to panel1
-                    JButton startButton = new JButton("Start");
+                    JButton startButton = new JButton("");
                     startButton.setIcon(start_button_img);
                     startButton.setOpaque(true);
                     startButton.setFocusable(false);
@@ -260,7 +262,7 @@ public class LandingPage extends JFrame implements ActionListener {
                     add(centerPanel1, BorderLayout.CENTER);
 
                     JPanel bottomPanel1 = new JPanel();
-                    bottomPanel1.setBackground(Color.lightGray);
+                    bottomPanel1.setBackground(Color.black);
                     bottomPanel1.setPreferredSize(new Dimension(700, 50));
                     bottomPanel1.add(background_footer);
                     add(bottomPanel1, BorderLayout.SOUTH);
