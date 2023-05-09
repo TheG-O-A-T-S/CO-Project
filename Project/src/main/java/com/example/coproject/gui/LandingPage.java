@@ -311,7 +311,7 @@ public class LandingPage extends JFrame implements ActionListener {
                             score = (counter * ((inputString.length() / constant) + 1) * constant) / totalTime;
 
                             // Switch to another screen after 1 * counter seconds
-                            Timer timer = new Timer(1000 * counter, new ActionListener() {
+                            Timer timer = new Timer(1000 * ((counter / 5) + 3), new ActionListener() {
                                 public void actionPerformed(ActionEvent e) {
                                     // Remove loading panel
                                     remove(loadingPanel);
@@ -389,7 +389,7 @@ public class LandingPage extends JFrame implements ActionListener {
                     });
 
                     // modify such that the user can choose how many times to perform the algorithm
-                    // score = timesComputed * lenOfString / time
+
 
                 } catch (NullPointerException n) {
 
@@ -400,35 +400,249 @@ public class LandingPage extends JFrame implements ActionListener {
         algorithmButton2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    // numElements = the block of memory to be accessed
-                    // change this from a textfield or something
-                    int numElements = 1000;
-                    long time = benchmarkTest2.computeAccessTime(1000);
-                    // transition to another screen
                     topPannel.setVisible(false);
                     centerPanel.setVisible(false);
                     bottomPannel.setVisible(false);
 
-                    JPanel panel2 = new JPanel();
-                    panel2.setBackground(Color.lightGray);
-                    panel2.setPreferredSize(new Dimension(700, 400));
+                    JPanel topPanel1 = new JPanel();
+                    topPanel1.setBackground(Color.lightGray);
+                    topPanel1.setPreferredSize(new Dimension(700, 100));
+                    topPanel1.add(background_header);
+                    add(topPanel1, BorderLayout.NORTH);
 
-                    // add gif to panel2
-                    ImageIcon gif = new ImageIcon("");
-                    JLabel gifLabel = new JLabel(gif);
-                    panel2.add(gifLabel);
+                    JPanel centerPanel1 = new JPanel();
+                    centerPanel1.setBackground(Color.black); // set background to black
+                    centerPanel1.setLayout(new BoxLayout(centerPanel1, BoxLayout.PAGE_AXIS));
+                    centerPanel1.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    centerPanel1.setBorder(BorderFactory.createEmptyBorder(20, 50, 20, 50)); // Add horizontal padding
 
-                    // add text input to panel2
-                    JTextField textField2 = new JTextField();
-                    textField2.setPreferredSize(new Dimension(300, 30));
-                    panel2.add(textField2);
+// add text explaining what needs to be done
+                    JLabel textLabel = new JLabel("Input the size of memory you want the goat to access on the GPU:");
+                    textLabel.setPreferredSize(new Dimension(300, 30));
+                    textLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    textLabel.setForeground(Color.white); // set text color to white
+                    centerPanel1.add(textLabel);
+                    centerPanel1.add(Box.createRigidArea(new Dimension(0, 10)));
 
-                    // add panel2 to centerPanel
-                    centerPanel.add(panel2);
-                    panel2.setVisible(true);
-                    // make the new pannels visible
+// add text input to panel1
+                    JTextField textField1 = new JTextField();
+                    textField1.setPreferredSize(new Dimension(50, 20));
+                    textField1.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    centerPanel1.add(textField1);
+                    centerPanel1.add(Box.createRigidArea(new Dimension(0, 50)));
 
-                    // score = timesComputed * blockOfMemory / time
+                    ImageIcon button_img = new ImageIcon("src/main/java/com/example/coproject/res/button.png");
+                    Image img = button_img.getImage().getScaledInstance(200, 70, Image.SCALE_SMOOTH);
+                    button_img = new ImageIcon(img);
+
+// add buttons to panel1
+                    JPanel buttonsPanel = new JPanel();
+                    buttonsPanel.setBackground(Color.black);
+                    buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.LINE_AXIS));
+                    buttonsPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+                    JButton plusButton = new JButton("+");
+                    plusButton.setIcon(button_img);
+                    plusButton.setOpaque(true);
+                    plusButton.setFocusable(false);
+
+                    plusButton.setLayout(null);
+                    plusButton.setHorizontalTextPosition(SwingConstants.CENTER);
+                    plusButton.setVerticalTextPosition(SwingConstants.CENTER);
+                    plusButton.setBounds(300, 100, button_img.getIconWidth(), button_img.getIconHeight());
+
+// set font size for button text
+                    Font buttonFont = new Font("Arial", Font.BOLD, 16); // adjust size as needed
+                    plusButton.setFont(buttonFont);
+
+// make photo background fit the entire button size
+                    plusButton.setBorderPainted(false);
+                    plusButton.setContentAreaFilled(false);
+                    plusButton.setIconTextGap(0);
+                    plusButton.setPreferredSize(new Dimension(30, 60)); // Set size for + button
+                    plusButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    counter = 1;
+
+//  add counter label to button
+                    JLabel counterLabel = new JLabel("Compute algorithm " + String.valueOf(counter) + " time");
+                    counterLabel.setBounds(0, 0, 300, 20);
+                    counterLabel.setForeground(Color.white);
+                    counterLabel.setFont(buttonFont);
+                    plusButton.add(counterLabel);
+
+                    plusButton.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                            counter++;
+                            counterLabel.setText("Compute algorithm " + String.valueOf(counter) + " times"); // updated counter label text
+                        }
+                    });
+
+                    buttonsPanel.add(plusButton);
+
+                    centerPanel1.add(buttonsPanel);
+                    centerPanel1.add(Box.createVerticalGlue());
+                    centerPanel1.add(Box.createRigidArea(new Dimension(0, 100)));
+
+                    ImageIcon start_button_img = new ImageIcon("src/main/java/com/example/coproject/res/start_button.png");
+                    Image img_start = start_button_img.getImage().getScaledInstance(200, 70, Image.SCALE_SMOOTH);
+                    start_button_img = new ImageIcon(img_start);
+
+                    // add start button to panel1
+                    JButton startButton = new JButton("");
+                    startButton.setIcon(start_button_img);
+                    startButton.setOpaque(true);
+                    startButton.setFocusable(false);
+                    startButton.setLayout(null);
+                    startButton.setHorizontalTextPosition(SwingConstants.CENTER);
+                    startButton.setVerticalTextPosition(SwingConstants.CENTER);
+                    startButton.setBounds(300, 100, start_button_img.getIconWidth(), start_button_img.getIconHeight());
+                    startButton.setBorderPainted(false);
+                    startButton.setContentAreaFilled(false);
+                    startButton.setIconTextGap(0);
+                    startButton.setPreferredSize(new Dimension(30, 60)); // Set size
+                    startButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+                    centerPanel1.add(startButton);
+                    centerPanel1.add(Box.createVerticalGlue());
+
+                    add(centerPanel1, BorderLayout.CENTER);
+
+                    JPanel bottomPanel1 = new JPanel();
+                    bottomPanel1.setBackground(Color.black);
+                    bottomPanel1.setPreferredSize(new Dimension(700, 50));
+                    bottomPanel1.add(background_footer);
+                    add(bottomPanel1, BorderLayout.SOUTH);
+
+                    // first warm up the benchmark
+                    for (int i = 0; i < 20; i++) {
+                        benchmarkTest2.computeAccessTime(1000);
+                    }
+
+                    ImageIcon finalButton_img = button_img;
+                    startButton.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+
+                            // Disable center panel
+                            centerPanel1.setVisible(false);
+
+                            // Create new panel with loading gif
+                            JPanel loadingPanel = new JPanel();
+                            loadingPanel.setBackground(Color.black);
+                            loadingPanel.setLayout(new BoxLayout(loadingPanel, BoxLayout.PAGE_AXIS));
+                            loadingPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+                            loadingPanel.setBorder(BorderFactory.createEmptyBorder(20, 50, 20, 50)); // Add horizontal padding
+
+                            // Add loading gif to panel
+                            ImageIcon loadingIcon = new ImageIcon("path/to/loading.gif");
+                            JLabel loadingLabel = new JLabel(loadingIcon);
+                            loadingPanel.add(loadingLabel);
+
+                            // Add panel to frame
+                            add(loadingPanel, BorderLayout.CENTER);
+
+
+
+                            long score;
+                            int constant = 50000;
+                            String inputString = textField1.getText();
+                            int memSize = 1000; // default value
+                            // memory accessed = memSize * sizeof int (4 bytes)
+
+                            try {
+                                memSize = Integer.parseInt(inputString);
+                            } catch (NumberFormatException ne) {
+
+                            }
+
+                            long totalTime = 0;
+                            for (int i = 0; i < counter; i++) {
+                                long time = benchmarkTest2.computeAccessTime(memSize);
+                                totalTime += time;
+                            }
+
+                            totalTime /= 1000;
+
+                            score = (counter * ((memSize / constant * 10) + 1) * constant) / totalTime;
+
+                            // Switch to another screen after 1 * counter seconds
+                            Timer timer = new Timer(1000 * ((counter / 5) + 3), new ActionListener() {
+                                public void actionPerformed(ActionEvent e) {
+                                    // Remove loading panel
+                                    remove(loadingPanel);
+
+                                    // Add new panel
+                                    JPanel newPanel = new JPanel();
+                                    newPanel.setBackground(Color.black);
+                                    newPanel.setLayout(new BoxLayout(newPanel, BoxLayout.Y_AXIS));
+
+                                    // !!! Display a different photo based on the score
+
+                                    // Display the score
+                                    JLabel textLabel = new JLabel("Your score: " + score);
+                                    textLabel.setPreferredSize(new Dimension(300, 30));
+                                    textLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+                                    textLabel.setForeground(Color.white); // set text color to white
+                                    newPanel.add(Box.createRigidArea(new Dimension(0, 50))); // add spacing
+                                    newPanel.add(textLabel);
+                                    newPanel.add(Box.createRigidArea(new Dimension(0, 50))); // add spacing
+
+                                    // Add return button
+                                    JButton returnButton = new JButton("Return");
+                                    returnButton.setIcon(finalButton_img);
+                                    returnButton.setOpaque(true);
+                                    returnButton.setFocusable(false);
+
+                                    // Set button size and position
+                                    int buttonWidth = 200;
+                                    int buttonHeight = 80;
+                                    int x = (newPanel.getWidth() - buttonWidth) / 2;
+                                    int y = (newPanel.getHeight() - buttonHeight) / 2;
+                                    returnButton.setBounds(x, y, buttonWidth, buttonHeight);
+
+                                    // Set button text properties
+                                    Font buttonFont = new Font("Arial", Font.BOLD, 24); // adjust size as needed
+                                    returnButton.setFont(buttonFont);
+                                    returnButton.setHorizontalTextPosition(SwingConstants.CENTER);
+                                    returnButton.setVerticalTextPosition(SwingConstants.CENTER);
+
+                                    // Set button background and border
+                                    returnButton.setBorderPainted(false);
+                                    returnButton.setContentAreaFilled(false);
+                                    returnButton.setIconTextGap(0);
+                                    returnButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+                                    newPanel.add(returnButton);
+                                    add(newPanel, BorderLayout.CENTER);
+
+                                    // Refresh frame
+                                    revalidate();
+                                    repaint();
+
+                                    // return to main screen
+                                    returnButton.addActionListener(new ActionListener() {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            topPanel1.setVisible(false);
+                                            newPanel.setVisible(false);
+                                            bottomPanel1.setVisible(false);
+
+                                            topPannel.setVisible(true);
+                                            centerPanel.setVisible(true);
+                                            bottomPannel.setVisible(true);
+                                        }
+                                    });
+
+                                }
+                            });
+                            timer.setRepeats(false);
+                            timer.start();
+
+
+
+
+                            // System.out.println(inputString);
+                        }
+                    });
+
                 } catch (NullPointerException n) {
 
                 }
