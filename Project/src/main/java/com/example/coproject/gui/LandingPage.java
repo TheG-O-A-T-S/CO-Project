@@ -220,7 +220,7 @@ public class LandingPage extends JFrame implements ActionListener {
                     counter = 1;
 
 //  add counter label to button
-                    JLabel counterLabel = new JLabel("Compute algorithm " + String.valueOf(counter) + " times");
+                    JLabel counterLabel = new JLabel("Compute algorithm " + String.valueOf(counter) + " time");
                     counterLabel.setBounds(0, 0, 300, 20);
                     counterLabel.setForeground(Color.white);
                     counterLabel.setFont(buttonFont);
@@ -268,6 +268,11 @@ public class LandingPage extends JFrame implements ActionListener {
                     bottomPanel1.add(background_footer);
                     add(bottomPanel1, BorderLayout.SOUTH);
 
+                    // first warm up the benchmark
+                    for (int i = 0; i < 20; i++) {
+                        benchmarkTest1.computeEncryptionDecryption1("");
+                    }
+
                     ImageIcon finalButton_img = button_img;
                     startButton.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
@@ -290,17 +295,20 @@ public class LandingPage extends JFrame implements ActionListener {
                             // Add panel to frame
                             add(loadingPanel, BorderLayout.CENTER);
 
+
+
                             long score;
+                            int constant = 500000;
                             String inputString = textField1.getText();
-                            long averageTime = 0;
+                            long totalTime = 0;
                             for (int i = 0; i < counter; i++) {
                                 long time = benchmarkTest1.computeEncryptionDecryption1(inputString);
-                                averageTime += time;
+                                totalTime += time;
                             }
 
-                            averageTime /= counter;
+                            totalTime /= 1000;
 
-                            score = counter * inputString.length() / averageTime;
+                            score = (counter * ((inputString.length() / constant) + 1) * constant) / totalTime;
 
                             // Switch to another screen after 1 * counter seconds
                             Timer timer = new Timer(1000 * counter, new ActionListener() {
