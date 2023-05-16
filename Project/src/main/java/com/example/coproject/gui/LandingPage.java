@@ -134,7 +134,7 @@ public class LandingPage extends JFrame implements ActionListener {
         JLabel background_footer = new JLabel("",
                 new ImageIcon("src/main/java/com/example/coproject/res/goattest_footer.gif"),JLabel.CENTER);
         background_footer.setBounds(0,0,750,50);
-        bottomPannel.add(background_footer);
+
 
 
 
@@ -143,9 +143,11 @@ public class LandingPage extends JFrame implements ActionListener {
         JLabel sys_info = new JLabel();
         // add gpu and maybe ram
         sys_info.setText("CPU: " + system_info.getCpu() + " OS: " + system_info.getOsName());
+        sys_info.setForeground(new Color(194, 194, 194));
         sys_info.setHorizontalAlignment(JLabel.CENTER);
         sys_info.setVerticalAlignment(JLabel.TOP);
         bottomPannel.add(sys_info); // move it
+        bottomPannel.add(background_footer);
 //        bottomPannel.add(bottom_info);
 //        bottomPannel.add(new JLabel(new ImageIcon(image2)));
 
@@ -373,6 +375,9 @@ public class LandingPage extends JFrame implements ActionListener {
                                             topPannel.setVisible(true);
                                             centerPanel.setVisible(true);
                                             bottomPannel.setVisible(true);
+
+                                            topPannel.add(background_header);
+                                            bottomPannel.add(background_footer);
                                         }
                                     });
 
@@ -628,6 +633,9 @@ public class LandingPage extends JFrame implements ActionListener {
                                             topPannel.setVisible(true);
                                             centerPanel.setVisible(true);
                                             bottomPannel.setVisible(true);
+
+                                            topPannel.add(background_header);
+                                            bottomPannel.add(background_footer);
                                         }
                                     });
 
