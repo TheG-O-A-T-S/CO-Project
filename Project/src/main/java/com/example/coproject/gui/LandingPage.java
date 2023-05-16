@@ -318,13 +318,59 @@ public class LandingPage extends JFrame implements ActionListener {
                                     // Remove loading panel
                                     remove(loadingPanel);
 
-                                    // Add new panel
+                                    ImageIcon goat1 = new ImageIcon("src/main/java/com/example/coproject/res/goat1.gif");
+                                    Image img = goat1.getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT);
+                                    goat1 = new ImageIcon(img);
+                                    ImageIcon goat2 = new ImageIcon("src/main/java/com/example/coproject/res/goat2.gif");
+                                    Image img2 = goat2.getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT);
+                                    goat2 = new ImageIcon(img2);
+                                    ImageIcon goat3 = new ImageIcon("src/main/java/com/example/coproject/res/goat3.gif");
+                                    Image img3 = goat3.getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT);
+                                    goat3 = new ImageIcon(img3);
+                                    ImageIcon goat4 = new ImageIcon("src/main/java/com/example/coproject/res/goat4.gif");
+                                    Image img4 = goat4.getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT);
+                                    goat4 = new ImageIcon(img4);
+                                    ImageIcon goat5 = new ImageIcon("src/main/java/com/example/coproject/res/goat5.gif");
+                                    Image img5 = goat5.getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT);
+                                    goat5 = new ImageIcon(img5);
+
+                                    // Outer panel to hold the components
+                                    JPanel outerPanel = new JPanel(new BorderLayout());
+                                    outerPanel.setBackground(Color.black);
+                                    outerPanel.setAlignmentY(Component.CENTER_ALIGNMENT);
+                                    outerPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+                                    // Inner panel for the left side (GIF)
+                                    JPanel leftPanel = new JPanel();
+                                    leftPanel.setBackground(Color.black);
+                                    leftPanel.setBorder(BorderFactory.createEmptyBorder(0, 50, 0, 50)); // Add left padding
+
+                                    // Inner panel for the center area
                                     JPanel newPanel = new JPanel();
-                                    newPanel.setBackground(Color.black);
                                     newPanel.setLayout(new BoxLayout(newPanel, BoxLayout.Y_AXIS));
+                                    newPanel.setBackground(Color.black);
+
+                                    String tier = "I";
+
+                                    if (score < 300) {
+                                        leftPanel.add(new JLabel(goat1));
+                                        tier = "I";
+                                    } else if (score >= 300 && score < 700) {
+                                        leftPanel.add(new JLabel(goat2));
+                                        tier = "II";
+                                    } else if (score >= 700 && score < 1000) {
+                                        leftPanel.add(new JLabel(goat3));
+                                        tier = "III";
+                                    } else if (score >= 1000 && score < 1500) {
+                                        leftPanel.add(new JLabel(goat4));
+                                        tier = "IV";
+                                    } else {
+                                        leftPanel.add(new JLabel(goat5));
+                                        tier = "V";
+                                    }
 
                                     // Display the score
-                                    JLabel textLabel = new JLabel("Your score: " + score);
+                                    JLabel textLabel = new JLabel("Your score: " + score + " (Tier " + tier + ")");
                                     textLabel.setPreferredSize(new Dimension(300, 30));
                                     textLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
                                     textLabel.setForeground(Color.white); // set text color to white
@@ -358,7 +404,12 @@ public class LandingPage extends JFrame implements ActionListener {
                                     returnButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
                                     newPanel.add(returnButton);
-                                    add(newPanel, BorderLayout.CENTER);
+
+                                    // Add the left and center panels to the outer panel
+                                    outerPanel.add(leftPanel, BorderLayout.WEST);
+                                    outerPanel.add(newPanel, BorderLayout.CENTER);
+
+                                    add(outerPanel, BorderLayout.CENTER);
 
                                     // Refresh frame
                                     revalidate();
@@ -369,7 +420,7 @@ public class LandingPage extends JFrame implements ActionListener {
                                         @Override
                                         public void actionPerformed(ActionEvent e) {
                                             topPanel1.setVisible(false);
-                                            newPanel.setVisible(false);
+                                            outerPanel.setVisible(false);
                                             bottomPanel1.setVisible(false);
 
                                             topPannel.setVisible(true);
@@ -574,15 +625,59 @@ public class LandingPage extends JFrame implements ActionListener {
                                     // Remove loading panel
                                     remove(loadingPanel);
 
-                                    // Add new panel
-                                    JPanel newPanel = new JPanel();
-                                    newPanel.setBackground(Color.black);
-                                    newPanel.setLayout(new BoxLayout(newPanel, BoxLayout.Y_AXIS));
+                                    ImageIcon goat1 = new ImageIcon("src/main/java/com/example/coproject/res/goat1.gif");
+                                    Image img = goat1.getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT);
+                                    goat1 = new ImageIcon(img);
+                                    ImageIcon goat2 = new ImageIcon("src/main/java/com/example/coproject/res/goat2.gif");
+                                    Image img2 = goat2.getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT);
+                                    goat2 = new ImageIcon(img2);
+                                    ImageIcon goat3 = new ImageIcon("src/main/java/com/example/coproject/res/goat3.gif");
+                                    Image img3 = goat3.getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT);
+                                    goat3 = new ImageIcon(img3);
+                                    ImageIcon goat4 = new ImageIcon("src/main/java/com/example/coproject/res/goat4.gif");
+                                    Image img4 = goat4.getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT);
+                                    goat4 = new ImageIcon(img4);
+                                    ImageIcon goat5 = new ImageIcon("src/main/java/com/example/coproject/res/goat5.gif");
+                                    Image img5 = goat5.getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT);
+                                    goat5 = new ImageIcon(img5);
 
-                                    // !!! Display a different photo based on the score
+                                    // Outer panel to hold the components
+                                    JPanel outerPanel = new JPanel(new BorderLayout());
+                                    outerPanel.setBackground(Color.black);
+                                    outerPanel.setAlignmentY(Component.CENTER_ALIGNMENT);
+                                    outerPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+                                    // Inner panel for the left side (GIF)
+                                    JPanel leftPanel = new JPanel();
+                                    leftPanel.setBackground(Color.black);
+                                    leftPanel.setBorder(BorderFactory.createEmptyBorder(0, 50, 0, 50)); // Add left padding
+
+                                    // Inner panel for the center area
+                                    JPanel newPanel = new JPanel();
+                                    newPanel.setLayout(new BoxLayout(newPanel, BoxLayout.Y_AXIS));
+                                    newPanel.setBackground(Color.black);
+
+                                    String tier = "I";
+
+                                    if (score < 100) {
+                                        leftPanel.add(new JLabel(goat1));
+                                        tier = "I";
+                                    } else if (score >= 150 && score < 250) {
+                                        leftPanel.add(new JLabel(goat2));
+                                        tier = "II";
+                                    } else if (score >= 250 && score < 350) {
+                                        leftPanel.add(new JLabel(goat3));
+                                        tier = "III";
+                                    } else if (score >= 350 && score < 500) {
+                                        leftPanel.add(new JLabel(goat4));
+                                        tier = "IV";
+                                    } else {
+                                        leftPanel.add(new JLabel(goat5));
+                                        tier = "V";
+                                    }
 
                                     // Display the score
-                                    JLabel textLabel = new JLabel("Your score: " + score);
+                                    JLabel textLabel = new JLabel("Your score: " + score + " (Tier " + tier + ")");
                                     textLabel.setPreferredSize(new Dimension(300, 30));
                                     textLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
                                     textLabel.setForeground(Color.white); // set text color to white
@@ -616,7 +711,12 @@ public class LandingPage extends JFrame implements ActionListener {
                                     returnButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
                                     newPanel.add(returnButton);
-                                    add(newPanel, BorderLayout.CENTER);
+
+                                    // Add the left and center panels to the outer panel
+                                    outerPanel.add(leftPanel, BorderLayout.WEST);
+                                    outerPanel.add(newPanel, BorderLayout.CENTER);
+
+                                    add(outerPanel, BorderLayout.CENTER);
 
                                     // Refresh frame
                                     revalidate();
@@ -627,7 +727,7 @@ public class LandingPage extends JFrame implements ActionListener {
                                         @Override
                                         public void actionPerformed(ActionEvent e) {
                                             topPanel1.setVisible(false);
-                                            newPanel.setVisible(false);
+                                            outerPanel.setVisible(false);
                                             bottomPanel1.setVisible(false);
 
                                             topPannel.setVisible(true);
