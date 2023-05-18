@@ -142,7 +142,7 @@ public class LandingPage extends JFrame implements ActionListener {
 
         JLabel sys_info = new JLabel();
         // add gpu and maybe ram
-        sys_info.setText("CPU: " + system_info.getCpu() + " OS: " + system_info.getOsName());
+        sys_info.setText("GPU: " + system_info.getGpu());
         sys_info.setForeground(new Color(194, 194, 194));
         sys_info.setHorizontalAlignment(JLabel.CENTER);
         sys_info.setVerticalAlignment(JLabel.TOP);
