@@ -142,7 +142,7 @@ public class LandingPage extends JFrame implements ActionListener {
 
         JLabel sys_info = new JLabel();
         // add gpu and maybe ram
-        sys_info.setText("CPU: " + system_info.getCpu() + " OS: " + system_info.getOsName());
+        sys_info.setText("GPU: " + system_info.getGpu());
         sys_info.setForeground(new Color(194, 194, 194));
         sys_info.setHorizontalAlignment(JLabel.CENTER);
         sys_info.setVerticalAlignment(JLabel.TOP);
@@ -290,7 +290,7 @@ public class LandingPage extends JFrame implements ActionListener {
                             loadingPanel.setBorder(BorderFactory.createEmptyBorder(20, 50, 20, 50)); // Add horizontal padding
 
                             // Add loading gif to panel
-                            ImageIcon loadingIcon = new ImageIcon("path/to/loading.gif");
+                            ImageIcon loadingIcon = new ImageIcon("src/main/java/com/example/coproject/res/Loading_Gif.gif");
                             JLabel loadingLabel = new JLabel(loadingIcon);
                             loadingPanel.add(loadingLabel);
 
