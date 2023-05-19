@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Main-Class: com.example.coproject.gui.LandingPage
+Class-Path: javafx-base-17.0.1-win.jar javafx-controls-17.0.1.jar javafx
+ -fxml-17.0.1.jar javafx-media-17.0.1-win.jar validatorfx-0.1.13.jar jav
+ afx-graphics-17.0.1.jar bootstrapfx-core-0.4.0.jar formsfx-core-11.3.2.
+ jar javafx-fxml-17.0.1-win.jar javafx-controls-17.0.1-win.jar javafx-ba
+ se-17.0.1.jar tilesfx-11.48.jar javafx-web-17.0.1-win.jar controlsfx-11
+ .1.0.jar javafx-graphics-17.0.1-win.jar ikonli-javafx-12.2.0.jar javafx
+ -media-17.0.1.jar ikonli-core-12.2.0.jar javafx-web-17.0.1.jar lwjgl.ja
+ r lwjgl-opengl.jar lwjgl-opengl-natives-windows.jar lwjgl-opengl-native
+ s-windows-x86.jar lwjgl-opengl-natives-windows-arm64.jar lwjgl-opengl-n
+ atives-macos.jar lwjgl-opengl-natives-macos-arm64.jar lwjgl-opengl-nati
+ ves-linux.jar lwjgl-opengl-natives-linux-arm64.jar lwjgl-opengl-natives
+ -linux-arm32.jar lwjgl-natives-windows.jar lwjgl-natives-windows-x86.ja
+ r lwjgl-natives-windows-arm64.jar lwjgl-natives-macos.jar lwjgl-natives
+ -macos-arm64.jar lwjgl-natives-linux.jar lwjgl-natives-linux-arm64.jar 
+ lwjgl-natives-linux-arm32.jar jcuda-natives-11.2.0-windows-x86_64.jar j
+ cuda-11.2.0.jar
+

@@ -287,7 +287,7 @@ public class LandingPage extends JFrame implements ActionListener {
                             loadingPanel.setBackground(Color.black);
                             loadingPanel.setLayout(new BoxLayout(loadingPanel, BoxLayout.PAGE_AXIS));
                             loadingPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
-                            loadingPanel.setBorder(BorderFactory.createEmptyBorder(20, 50, 20, 50)); // Add horizontal padding
+                            loadingPanel.setBorder(BorderFactory.createEmptyBorder(50, 225, 0, 0)); // Add horizontal padding
 
                             // Add loading gif to panel
                             ImageIcon loadingIcon = new ImageIcon("src/main/java/com/example/coproject/res/Loading_Gif.gif");
@@ -585,10 +585,10 @@ public class LandingPage extends JFrame implements ActionListener {
                             loadingPanel.setBackground(Color.black);
                             loadingPanel.setLayout(new BoxLayout(loadingPanel, BoxLayout.PAGE_AXIS));
                             loadingPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
-                            loadingPanel.setBorder(BorderFactory.createEmptyBorder(20, 50, 20, 50)); // Add horizontal padding
+                            loadingPanel.setBorder(BorderFactory.createEmptyBorder(50, 225, 0, 0)); // Add horizontal padding
 
                             // Add loading gif to panel
-                            ImageIcon loadingIcon = new ImageIcon("path/to/loading.gif");
+                            ImageIcon loadingIcon = new ImageIcon("src/main/java/com/example/coproject/res/Loading_Gif.gif");
                             JLabel loadingLabel = new JLabel(loadingIcon);
                             loadingPanel.add(loadingLabel);
 

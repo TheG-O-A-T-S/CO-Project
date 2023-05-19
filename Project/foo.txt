@@ -1,7 +1,7 @@
 ------------------
 System Information
 ------------------
-      Time of this report: 5/19/2023, 14:32:11
+      Time of this report: 5/19/2023, 15:18:01
              Machine name: DESKTOP-27JQ7UM
                Machine Id: {0A00F5FF-8F9A-469A-8360-DC3611D61CFA}
          Operating System: Windows 10 Pro 64-bit (10.0, Build 19044) (19041.vb_release.191206-1406)
@@ -12,7 +12,7 @@ System Information
                 Processor: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz (12 CPUs), ~2.2GHz
                    Memory: 16384MB RAM
       Available OS Memory: 16232MB RAM
-                Page File: 15624MB used, 4047MB available
+                Page File: 16176MB used, 3495MB available
               Windows Dir: C:\WINDOWS
           DirectX Version: DirectX 12
       DX Setup Parameters: Not found
@@ -515,7 +515,7 @@ PS/2 Devices
 Disk & DVD/CD-ROM Drives
 ------------------------
       Drive: C:
- Free Space: 535.6 GB
+ Free Space: 534.7 GB
 Total Space: 945.3 GB
 File System: NTFS
       Model: ST1000LM049-2GH172
