@@ -35,16 +35,24 @@ public class System_info {
             BufferedReader br = new BufferedReader(new FileReader(filePath));
             String line;
             System.out.println(String.format("-- Printing %1$1s info --",filePath));
+
+            int n = 1;
+
             while((line = br.readLine()) != null){
                 if(line.trim().startsWith("Card name:")){
-
-
 
                     GPUNAME=line.trim();
                     GPUNAME=GPUNAME.replace("Card name:",  " ");
                     System.out.println(GPUNAME);
-                    break;
+                    if (n == 2) {
+                        break;
+                    }
+                    n++;
                 }
+
+                // if the pc doesn't have an integrated gpu in the cpu break earlier
+                if (line.trim().startsWith("Sound Devices")) break;
+
             }
         }
         catch (IOException | InterruptedException ex) {

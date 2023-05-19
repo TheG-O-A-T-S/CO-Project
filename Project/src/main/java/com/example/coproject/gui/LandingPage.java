@@ -290,7 +290,7 @@ public class LandingPage extends JFrame implements ActionListener {
                             loadingPanel.setBorder(BorderFactory.createEmptyBorder(20, 50, 20, 50)); // Add horizontal padding
 
                             // Add loading gif to panel
-                            ImageIcon loadingIcon = new ImageIcon("path/to/loading.gif");
+                            ImageIcon loadingIcon = new ImageIcon("src/main/java/com/example/coproject/res/Loading_Gif.gif");
                             JLabel loadingLabel = new JLabel(loadingIcon);
                             loadingPanel.add(loadingLabel);
 
