@@ -1,0 +1,51 @@
+<component name="ArtifactManager">
+  <artifact name="CO-Project:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CO_Project_jar</output-path>
+    <root id="root">
+      <element id="archive" name="CO-Project.jar">
+        <element id="module-output" name="CO-Project" />
+        <element id="dir-copy" path="$PROJECT_DIR$" />
+      </element>
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:win:17.0.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:17.0.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:17.0.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-media:win:17.0.1" />
+      <element id="library" level="project" name="Maven: net.synedra:validatorfx:0.1.13" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:17.0.1" />
+      <element id="library" level="project" name="Maven: org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0" />
+      <element id="library" level="project" name="Maven: com.dlsc.formsfx:formsfx-core:11.3.2" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-fxml:win:17.0.1" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-controls:win:17.0.1" />
+      <element id="library" level="project" name="java" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-base:17.0.1" />
+      <element id="library" level="project" name="Maven: eu.hansolo:tilesfx:11.48" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-web:win:17.0.1" />
+      <element id="library" level="project" name="Maven: org.controlsfx:controlsfx:11.1.0" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-graphics:win:17.0.1" />
+      <element id="library" level="project" name="Maven: org.kordamp.ikonli:ikonli-javafx:12.2.0" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-media:17.0.1" />
+      <element id="library" level="project" name="Maven: org.kordamp.ikonli:ikonli-core:12.2.0" />
+      <element id="library" level="project" name="Maven: org.openjfx:javafx-web:17.0.1" />
+      <element id="file-copy" path="$PROJECT_DIR$/../jars/lwjgl.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../jars/lwjgl-opengl.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../jars/lwjgl-opengl-natives-windows.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../jars/lwjgl-opengl-natives-windows-x86.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../jars/lwjgl-opengl-natives-windows-arm64.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../jars/lwjgl-opengl-natives-macos.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../jars/lwjgl-opengl-natives-macos-arm64.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../jars/lwjgl-opengl-natives-linux.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../jars/lwjgl-opengl-natives-linux-arm64.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../jars/lwjgl-opengl-natives-linux-arm32.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../jars/lwjgl-natives-windows.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../jars/lwjgl-natives-windows-x86.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../jars/lwjgl-natives-windows-arm64.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../jars/lwjgl-natives-macos.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../jars/lwjgl-natives-macos-arm64.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../jars/lwjgl-natives-linux.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../jars/lwjgl-natives-linux-arm64.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../jars/lwjgl-natives-linux-arm32.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../jars/jcuda-natives-11.2.0-windows-x86_64.jar" />
+      <element id="file-copy" path="$PROJECT_DIR$/../jars/jcuda-11.2.0.jar" />
+    </root>
+  </artifact>
+</component>
